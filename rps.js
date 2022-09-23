@@ -22,7 +22,7 @@ function getComputerChoice(){
 
 function getPlayerChoice(pChoice = '')
 {
-    console.log('Geting player choice')
+    console.log('Getting player choice')
     pChoice = prompt('Enter rock, paper, or scissors');
     pChoice = pChoice.toLowerCase();
     console.log('I chose ' + pChoice)
