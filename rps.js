@@ -26,15 +26,6 @@ function getComputerChoice(){
     return cChoice;
 }
 
-function getPlayerChoice(pChoice = '')
-{
-    console.log('Getting player choice')
-    pChoice = prompt('Enter rock, paper, or scissors');
-    pChoice = pChoice.toLowerCase();
-    console.log('I chose ' + pChoice)
-    return pChoice;
-}
-
 function playRound(pSelection, cSelection)
 {
     if(pSelection === cSelection)
@@ -124,8 +115,20 @@ function game(){
 }
 
 
-
-
-
+const buttons = document.querySelector('button');
+document.addEventListener("click", e => {
+    if (e.target.matches(".mage")){
+        console.log('mage')
+        playRound('paper', computerSelection = getComputerChoice())
+    }
+    if (e.target.matches(".range")){
+        console.log('range')
+        playRound('scissors', computerSelection = getComputerChoice())
+    }
+    if (e.target.matches(".melee")){
+        console.log('melee')
+        playRound('rock', computerSelection = getComputerChoice())
+    }
+})
 
 
