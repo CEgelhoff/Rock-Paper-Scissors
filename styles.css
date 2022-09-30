@@ -1,24 +1,81 @@
+*{
+    /* border: 2px solid yellow; */
+}
+
 .background{
     margin: 0%;
     padding: 0%;
 }
 
 body {
-    min-height: 90vh;
     background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
     background-size: auto;
     resize: both;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .mage,
 .range,
 .melee{
-    min-height: 65px;
-    min-width: 65px;
-    font-size: medium;
+    min-height: 130px;
+    min-width: 130px;
+    font-size: xx-large;
     font-weight: 800;
-    color: white;
+    text-shadow: 0 0 10px #ff5e00;
+    color: yellow;
+}
+
+h1, .score{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h1,
+h2,
+h3{
+    color: burlywood;
+    padding: 10px;
+    margin: 0px;
+    text-shadow: 0 0 10px #ff5e00;
+}
+
+div{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.key{
+    display: block;
+    max-height: 250px;
+    margin-left: 40%;
+    margin-right: 40%;
+    border: 5px solid #ff5e00;
+    border-radius: 30%;
+    background-color: #ff5e00;
+    margin-top: 30px;
+}
+
+.youWin{
+    color: green;
+}
+
+.youLose{
+    color: red;
+}
+
+.youTied{
+    color: blue;
+}
+
+.wlt{
+    opacity: 10%;
+}
+
+.Buttons{
+    margin-top: 20px;
 }
 
 .mage{
