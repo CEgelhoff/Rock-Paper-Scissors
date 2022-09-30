@@ -1,0 +1,35 @@
+.background{
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    min-height: 90vh;
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    resize: both;
+}
+
+.mage,
+.range,
+.melee{
+    min-height: 65px;
+    min-width: 65px;
+    font-size: medium;
+    font-weight: 800;
+    color: white;
+}
+
+.mage{
+    background: url("../images/Mage.png") no-repeat;
+}
+
+.melee{
+    background: url("../images/Melee.png") no-repeat;
+}
+
+
+.range{
+    background: url("../images/Range.png") no-repeat;
+}

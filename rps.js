@@ -1,3 +1,9 @@
+let playerSelection = '';
+let computerSelection = '';
+const t = 'tie'
+const w = 'win'
+const l = 'lose'
+
 function getComputerChoice(){
     let num = Math.floor(Math.random() * 3);
     let cChoice = num.toString();
@@ -69,20 +75,12 @@ function playRound(pSelection, cSelection)
     }
     else{console.log('Please input a valid option. (ex):Rock Paper or Scissors');}
 }
-   
-let playerSelection = '';
-let computerSelection = '';
-const t = 'tie'
-const w = 'win'
-const l = 'lose'
-
 
 function game(){
     let cWin = 0;
     let pWin = 0;
     let result = t;
 
-    for (let i = 0; i < 5; i++){
 
         result = playRound(playerSelection = getPlayerChoice(), computerSelection = getComputerChoice())
 
@@ -120,14 +118,12 @@ function game(){
         console.log('Next Round!');
         }
 
-    }
-
     console.log('****FINAL SCORE****');
     console.log('Player score:' + pWin);
     console.log('Computer score:' + cWin);
 }
 
-game();
+
 
 
 
