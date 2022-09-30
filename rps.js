@@ -1,10 +1,14 @@
+let cWin = 0;
+let pWin = 0;
+let result = '';
 let playerSelection = '';
 let computerSelection = '';
 const t = 'tie'
 const w = 'win'
 const l = 'lose'
 
-function getComputerChoice(){
+function getComputerChoice(){ // rolling a number and returning the resulting number
+                              // as a choice for the computers pick
     let num = Math.floor(Math.random() * 3);
     let cChoice = num.toString();
 
@@ -30,47 +34,36 @@ function playRound(pSelection, cSelection)
 {
     if(pSelection === cSelection)
     {
-        console.log('Tie');
         return t;
     }
     else if(pSelection === 'paper' && cSelection === 'rock')
     {
-        console.log('Win');
         return w;
     }
     else if(pSelection === 'paper' && cSelection === 'scissors')
     {
-        console.log('Lose');
         return l;
 
     }
     else if(pSelection === 'rock' && cSelection === 'paper')
     {
-        console.log('Lose');
         return l;
     }
     else if(pSelection === 'rock' && cSelection === 'scissors')
     {
-        console.log('Win');
         return w;
     }
     else if(pSelection === 'scissors' && cSelection === 'rock')
     {
-        console.log('Lose');
         return l;
     }
     else if(pSelection === 'scissors' && cSelection === 'paper')
     {
-        console.log('Win');
         return w;
     }
     else{console.log('Please input a valid option. (ex):Rock Paper or Scissors');}
 }
-
 function game(){
-    let cWin = 0;
-    let pWin = 0;
-    let result = t;
 
 
         result = playRound(playerSelection = getPlayerChoice(), computerSelection = getComputerChoice())
@@ -95,23 +88,6 @@ function game(){
         {
             console.log("error with game result")
         }
-
-        if (i<4)
-        {
-        console.log('*******************');
-        console.log('*******************');
-        console.log('*******************');
-        console.log('*******************');
-        console.log('*******************');
-        console.log('*******************');
-        console.log('*******************');
-        console.log('*******************');
-        console.log('Next Round!');
-        }
-
-    console.log('****FINAL SCORE****');
-    console.log('Player score:' + pWin);
-    console.log('Computer score:' + cWin);
 }
 
 
@@ -119,16 +95,43 @@ const buttons = document.querySelector('button');
 document.addEventListener("click", e => {
     if (e.target.matches(".mage")){
         console.log('mage')
-        playRound('paper', computerSelection = getComputerChoice())
+        result = playRound('paper', computerSelection = getComputerChoice())
+        lightUp(result);
     }
     if (e.target.matches(".range")){
         console.log('range')
-        playRound('scissors', computerSelection = getComputerChoice())
+        result = playRound('scissors', computerSelection = getComputerChoice())
+        lightUp(result);
     }
     if (e.target.matches(".melee")){
-        console.log('melee')
-        playRound('rock', computerSelection = getComputerChoice())
+        e.style.border = '3px solid red'
+        result = playRound('rock', computerSelection = getComputerChoice())
+        lightUp(result);
     }
 })
+
+const wBoard = document.querySelector('.youWin');
+const lBoard = document.querySelector('.youLose');
+const tBoard = document.querySelector('.youTied');
+
+
+function lightUp(wlt){
+    if(wlt === w){
+        wBoard.style.opacity = '100%';
+        lBoard.style.opacity = '10%'
+        tBoard.style.opacity = '10%'
+    }
+    else if(wlt === l){
+        wBoard.style.opacity = '10%'
+        lBoard.style.opacity = '100%'
+        tBoard.style.opacity = '10%'
+    }
+    else{
+        wBoard.style.opacity = '10%'
+        lBoard.style.opacity = '10%'
+        tBoard.style.opacity = '100%'
+        /* tBoard.setAttribute('opacity', '100%')*/
+    } 
+}
 
 

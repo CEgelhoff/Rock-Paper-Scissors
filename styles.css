@@ -1,7 +1,3 @@
-*{
-    /* border: 2px solid yellow; */
-}
-
 .background{
     margin: 0%;
     padding: 0%;
@@ -70,8 +66,14 @@ div{
     color: blue;
 }
 
-.wlt{
+.youWin,
+.youLose,
+.youTied{
     opacity: 10%;
+}
+
+.wlt{
+    border: 5px solid brown;
 }
 
 .Buttons{
