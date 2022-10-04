@@ -12,19 +12,25 @@ function getComputerChoice(){ // rolling a number and returning the resulting nu
     let num = Math.floor(Math.random() * 3);
     let cChoice = num.toString();
 
-    if (cChoice === '0'){
-        console.log("Computer chose rock");
+    if (cChoice === '0'){s
         cChoice = 'rock';
+        mageButton.style.color = ''
+        rangeButton.style.color = ''
+        meleeButton.style.color = '#0300a8'
     }
 
     else if (cChoice === '1'){
-        console.log("Computer chose paper");
         cChoice = 'paper';
+        mageButton.style.color = '#0300a8'
+        rangeButton.style.color = ''
+        meleeButton.style.color = ''
     }
 
     else {
-        console.log("Computer chose scissors");
         cChoice = 'scissors';
+        mageButton.style.color = ''
+        rangeButton.style.color = '#0300a8'
+        meleeButton.style.color = ''
     }
 
     return cChoice;
@@ -43,7 +49,6 @@ function playRound(pSelection, cSelection)
     else if(pSelection === 'paper' && cSelection === 'scissors')
     {
         return l;
-
     }
     else if(pSelection === 'rock' && cSelection === 'paper')
     {
@@ -63,61 +68,44 @@ function playRound(pSelection, cSelection)
     }
     else{console.log('Please input a valid option. (ex):Rock Paper or Scissors');}
 }
-function game(){
 
 
-        result = playRound(playerSelection = getPlayerChoice(), computerSelection = getComputerChoice())
+const button = document.querySelector('button');
+const mageButton = document.querySelector('.mage')
+const meleeButton = document.querySelector('.melee')
+const rangeButton = document.querySelector('.range')
 
-        if (result === w)
-        {
-            pWin++;
-            console.log('Your score is: ' + pWin);
-            console.log('Computer score is: ' + cWin);
-        }
-        else if (result === l)
-        {
-            cWin++;
-            console.log('Your score is: ' + pWin);
-            console.log('Computer score is: ' + cWin);
-        } 
-        else if(result === t)
-        {
-        console.log('Its a tie! Scores stay the same!');
-        }
-        else
-        {
-            console.log("error with game result")
-        }
-}
-
-
-const buttons = document.querySelector('button');
 document.addEventListener("click", e => {
     if (e.target.matches(".mage")){
-        console.log('mage')
         result = playRound('paper', computerSelection = getComputerChoice())
         lightUp(result);
+        buttonShadow(e);
+        changeScore(result);
     }
     if (e.target.matches(".range")){
-        console.log('range')
         result = playRound('scissors', computerSelection = getComputerChoice())
         lightUp(result);
+        buttonShadow(e);
+        changeScore(result);
     }
     if (e.target.matches(".melee")){
-        e.style.border = '3px solid red'
         result = playRound('rock', computerSelection = getComputerChoice())
         lightUp(result);
+        buttonShadow(e);
+        changeScore(result);
     }
 })
 
 const wBoard = document.querySelector('.youWin');
 const lBoard = document.querySelector('.youLose');
 const tBoard = document.querySelector('.youTied');
+const pScore = document.querySelector('.pScore')
+const cScore = document.querySelector('.cScore')
 
 
 function lightUp(wlt){
     if(wlt === w){
-        wBoard.style.opacity = '100%';
+        wBoard.style.opacity = '100%'
         lBoard.style.opacity = '10%'
         tBoard.style.opacity = '10%'
     }
@@ -134,4 +122,24 @@ function lightUp(wlt){
     } 
 }
 
+function buttonShadow(mySelection){
+    mageButton.style.boxShadow = '0 0 0 #00ff40'
+    rangeButton.style.boxShadow = '0 0 0 #00ff40'
+    meleeButton.style.boxShadow = '0 0 0 #00ff40'
+    mySelection.target.style.boxShadow = '0 0 20px #00ff40'
+}
+
+function changeScore(wlt){
+    if(wlt === w){
+        pWin++;
+        pScore.innerText = pWin
+    }
+    else if (wlt === l){
+        cWin++;
+        cScore.innerHTML = cWin
+    }
+    else{
+        return;
+    }
+}
 

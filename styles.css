@@ -80,6 +80,14 @@ div{
     margin-top: 20px;
 }
 
+.playerScore{
+    text-shadow: 0 0 20px #00ff40;
+}
+
+.computerScore{
+    text-shadow: 0 0 20px #0300a8;
+}
+
 .mage{
     background: url("../images/Mage.png") no-repeat;
 }
