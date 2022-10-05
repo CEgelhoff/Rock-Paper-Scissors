@@ -12,7 +12,7 @@ function getComputerChoice(){ // rolling a number and returning the resulting nu
     let num = Math.floor(Math.random() * 3);
     let cChoice = num.toString();
 
-    if (cChoice === '0'){s
+    if (cChoice === '0'){
         cChoice = 'rock';
         mageButton.style.color = ''
         rangeButton.style.color = ''
@@ -133,10 +133,25 @@ function changeScore(wlt){
     if(wlt === w){
         pWin++;
         pScore.innerText = pWin
+        if(pWin === 5){
+            alert('You were the first to score 5 wins! Good job!');
+            pWin = 0;
+            cWin = 0;
+        }
+        cScore.innerHTML = cWin
+        pScore.innerText = pWin
     }
     else if (wlt === l){
         cWin++;
         cScore.innerHTML = cWin
+        if(cWin === 5){
+            alert('Your opponent was the first to score 5 wins! Try Again!');
+            pWin = 0;
+            cWin = 0;
+            
+        }
+        cScore.innerHTML = cWin
+        pScore.innerText = pWin
     }
     else{
         return;

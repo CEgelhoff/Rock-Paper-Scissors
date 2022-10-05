@@ -1,13 +1,7 @@
-.background{
-    margin: 0%;
-    padding: 0%;
-}
-
 body {
     background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
-    background-size: auto;
-    resize: both;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: stretch;
